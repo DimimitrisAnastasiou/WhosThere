@@ -23,7 +23,7 @@ function renderCheckin(c) {
           ${name} checked into <a href="/places.html?id=${c.place.id}">${c.place.name}</a>
         </div>
         ${c.note ? `<div class="checkin-note">${c.note}</div>` : ""}
-        <div class="checkin-meta">${timeAgo(c.created_at)}${c.place.address ? ` · ${c.place.address}` : ""}</div>
+        <div class="checkin-meta">${timeAgo(c.created_at)}${c.duration_minutes ? ` · ${c.duration_minutes} mins` : ""}${c.place.address ? ` · ${c.place.address}` : ""}</div>
       </div>
     </div>
   `;

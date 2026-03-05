@@ -14,6 +14,7 @@ class CheckIn(Base):
     note: Mapped[str | None] = mapped_column(Text, nullable=True)
     is_anonymous: Mapped[bool] = mapped_column(Boolean, default=False)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    duration_minutes: Mapped[int | None] = mapped_column(nullable=True)
 
     user: Mapped["User"] = relationship("User", back_populates="checkins")  # noqa: F821
     place: Mapped["Place"] = relationship("Place", back_populates="checkins")  # noqa: F821

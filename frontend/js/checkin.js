@@ -108,6 +108,9 @@ submitBtn?.addEventListener("click", async () => {
       place_id: selectedPlace.id,
       note: noteInput.value.trim() || null,
       is_anonymous: anonCheck.checked,
+      duration_minutes: document.getElementById("checkin-duration").value 
+        ? parseInt(document.getElementById("checkin-duration").value) 
+        : null,
     });
     window.location.href = "/";
   } catch (err) {

@@ -38,7 +38,14 @@
 
       <label class="label" for="checkin-note">Note (optional)</label>
       <textarea id="checkin-note" class="input" rows="3" placeholder="What are you up to?"></textarea>
-
+      <label class="label" for="checkin-duration">How long will you be there? (optional)</label>
+      <input 
+        id="checkin-duration" 
+        type="number" 
+        class="input" 
+        placeholder="Minutes e.g. 60"
+        min="1"
+      />
       <label class="checkbox-label">
         <input type="checkbox" id="checkin-anonymous" />
         Check in anonymously

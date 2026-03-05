@@ -29,6 +29,7 @@ async def create_checkin(
         place_id=body.place_id,
         note=body.note,
         is_anonymous=body.is_anonymous,
+        duration_minutes=body.duration_minutes,
     )
     db.add(checkin)
     await db.flush()
