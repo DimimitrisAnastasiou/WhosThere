@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile — CheckIn</title>
+  <link rel="stylesheet" href="/css/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="/" class="nav-logo">📍 CheckIn</a>
+    <div class="nav-links">
+      <a href="/">Feed</a>
+      <a href="/places.html">Places</a>
+      <span id="nav-auth"></span>
+    </div>
+  </nav>
+
+  <main class="container narrow">
+    <div id="profile-header" class="profile-header">
+      <img id="profile-avatar" class="avatar avatar-lg" src="" alt="avatar" />
+      <div>
+        <h1 id="profile-name"></h1>
+        <p id="profile-username" class="muted"></p>
+      </div>
+    </div>
+
+    <h2>Check-ins</h2>
+    <div id="profile-feed" class="feed">
+      <p class="loading">Loading…</p>
+    </div>
+  </main>
+
+  <script type="module" src="/js/auth.js"></script>
+  <script type="module" src="/js/profile.js"></script>
+</body>
+</html>

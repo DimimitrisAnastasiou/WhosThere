@@ -1,0 +1,225 @@
+/* ── Reset & Base ─────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0f0f0f;
+  --surface: #1a1a1a;
+  --surface-2: #242424;
+  --border: #2e2e2e;
+  --text: #f0f0f0;
+  --text-muted: #888;
+  --accent: #6c63ff;
+  --accent-hover: #5a52d5;
+  --danger: #e05c5c;
+  --success: #4caf85;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Layout ───────────────────────────────────────────────────────────────── */
+.container { max-width: 720px; margin: 0 auto; padding: 24px 16px; }
+.container.narrow { max-width: 480px; }
+
+/* ── Navbar ───────────────────────────────────────────────────────────────── */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 60px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-logo { font-weight: 700; font-size: 18px; color: var(--text); }
+.nav-links { display: flex; align-items: center; gap: 20px; font-size: 14px; }
+.nav-links a { color: var(--text-muted); }
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* ── Buttons ──────────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: opacity 0.15s, transform 0.1s;
+}
+.btn:active { transform: scale(0.97); }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover:not(:disabled) { background: var(--accent-hover); }
+.btn-secondary { background: var(--surface-2); color: var(--text); border: 1px solid var(--border); }
+.btn-secondary:hover:not(:disabled) { background: var(--border); }
+.btn-lg { padding: 14px 32px; font-size: 16px; }
+.btn-clear { background: none; border: none; cursor: pointer; color: var(--text-muted); font-size: 16px; padding: 4px; }
+
+/* ── Inputs ───────────────────────────────────────────────────────────────── */
+.input {
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.input:focus { border-color: var(--accent); }
+.input::placeholder { color: var(--text-muted); }
+textarea.input { resize: vertical; }
+
+.label { display: block; font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 6px; margin-top: 16px; }
+.label:first-child { margin-top: 0; }
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  margin-top: 14px;
+  cursor: pointer;
+}
+
+/* ── Cards ────────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.card-section { margin-bottom: 16px; }
+
+/* ── Hero ─────────────────────────────────────────────────────────────────── */
+.hero {
+  text-align: center;
+  padding: 48px 0 32px;
+}
+.hero h1 { font-size: 28px; margin-bottom: 20px; }
+
+/* ── Feed ─────────────────────────────────────────────────────────────────── */
+.feed { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
+
+.checkin-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.checkin-card .avatar { flex-shrink: 0; }
+.checkin-card .checkin-body { flex: 1; min-width: 0; }
+.checkin-card .checkin-place { font-weight: 700; font-size: 15px; }
+.checkin-card .checkin-place a { color: var(--text); }
+.checkin-card .checkin-place a:hover { color: var(--accent); text-decoration: none; }
+.checkin-card .checkin-note { color: var(--text-muted); font-size: 14px; margin-top: 4px; }
+.checkin-card .checkin-meta { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
+
+/* ── Avatar ───────────────────────────────────────────────────────────────── */
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.avatar-lg { width: 72px; height: 72px; font-size: 28px; }
+
+/* ── Suggestions dropdown ─────────────────────────────────────────────────── */
+.suggestions {
+  list-style: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-top: 4px;
+  overflow: hidden;
+}
+.suggestions li {
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.suggestions li:last-child { border-bottom: none; }
+.suggestions li:hover { background: var(--surface-2); }
+.suggestions li .suggestion-address { font-size: 12px; color: var(--text-muted); }
+
+.selected-place {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface-2);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+/* ── Places grid ──────────────────────────────────────────────────────────── */
+.places-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
+.place-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.place-card:hover { border-color: var(--accent); }
+.place-card h3 { font-size: 15px; margin-bottom: 4px; }
+.place-card p { font-size: 12px; color: var(--text-muted); }
+
+/* ── Profile ──────────────────────────────────────────────────────────────── */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 0;
+  margin-bottom: 8px;
+}
+
+/* ── Feed header ──────────────────────────────────────────────────────────── */
+.feed-header { display: flex; align-items: center; justify-content: space-between; margin-top: 32px; }
+.feed-header h2 { font-size: 18px; }
+
+/* ── Misc ─────────────────────────────────────────────────────────────────── */
+.loading { color: var(--text-muted); font-size: 14px; padding: 20px 0; }
+.muted { color: var(--text-muted); font-size: 14px; }
+.error { color: var(--danger); font-size: 14px; margin-top: 10px; }
+.hidden { display: none !important; }
